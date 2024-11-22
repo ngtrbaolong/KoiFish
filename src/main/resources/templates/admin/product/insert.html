@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Thêm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" th:href="@{/assets_admin/images/favicon.ico}">
+
+    <!-- App css -->
+    <link th:href="@{/assets_admin/libs/dropzone/dropzone.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets_admin/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets_admin/css/icons.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets_admin/css/app.min.css}" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .profile-picture img {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+        }
+
+        .form-group img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="fe-bell noti-icon"></i>
+                    <span class="badge badge-danger rounded-circle noti-icon-badge">9</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+
+                </div>
+            </li>
+
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                   href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <span class="ml-1" th:text="${email}"> <i class="mdi mdi-chevron-down"></i> </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                    <!-- item-->
+                    <div class="dropdown-header noti-title">
+                        <h6 class="text-overflow m-0">Chào mừng!</h6>
+                    </div>
+
+                    <!-- item-->
+                    <a th:href="@{/admin/profile}" class="dropdown-item notify-item">
+                        <i class="fe-user"></i>
+                        <span>Thông tin cá nhân</span>
+                    </a>
+
+                    <!-- item-->
+                    <a th:href="@{/logout}" class="dropdown-item notify-item">
+                        <i class="fe-log-out"></i>
+                        <span>Logout</span>
+                    </a>
+
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+            <a th:href="@{/admin/home}" class="logo text-center">
+                        <span class="logo-lg">
+                            <img th:src="@{/assets_admin/images/logo-light.png}" alt="" height="16">
+                            <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        </span>
+                <span class="logo-sm">
+                            <!-- <span class="logo-sm-text-dark">U</span> -->
+                            <img th:src="@{/assets_admin/images/logo-sm.png}" alt="" height="24">
+                        </span>
+            </a>
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+        </ul>
+    </div>
+    <!-- end Topbar -->
+
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+        <div class="slimscroll-menu">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+
+                <ul class="metismenu" id="side-menu">
+
+                    <li class="menu-title">QUẢN LÝ</li>
+
+                    <li>
+                        <a th:href="@{/admin/home}">
+                            <i class="fe-airplay"></i>
+                            <span> Dashboard </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/pond}">
+                            <i class="fe-briefcase"></i>
+                            Quản lý hồ cá
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a th:href="@{/admin/fish}">
+                            <i class="fe-briefcase"></i>
+                            Quản lý cá
+                        </a>
+
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/waterParam}">
+                            <i class="fe-briefcase"></i>
+                            Quản lý thông số nước
+                        </a>
+
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/product}">
+                            <i class="fe-briefcase"></i>
+                            Quản lý đặt mua sản phẩm
+                        </a>
+
+                    </li>
+                </ul>
+
+            </div>
+            <!-- End Sidebar -->
+
+            <div class="clearfix"></div>
+
+        </div>
+        <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                    <li class="breadcrumb-item active">Form Validation</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Thêm thông tin</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card-box">
+                            <form class="parsley-examples" action="#" id="myForm" th:action="@{/admin/product/save}"
+                                  th:object="${product}" method="post" enctype="multipart/form-data">
+                                <!-- Hidden input for Pond ID -->
+                                <input type="hidden" th:field="*{id}"/>
+
+                                <!-- Name -->
+                                <div class="form-group">
+                                    <label>Tên</label>
+                                    <input type="text" class="form-control" required placeholder="Nhập tên" th:field="*{name}"/>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="form-group">
+                                    <label>Ảnh</label>
+                                    <br>
+                                    <img id="imagePreview" th:src="${product.img}" alt="Ảnh hồ" class="image" style="max-width: 100px;">
+                                    <br><br>
+                                    <label for="fileImage">Chọn ảnh:</label>
+                                    <input type="file" name="fileImage" id="fileImage" onchange="previewImage(this)"/>
+                                </div>
+
+                                <script>
+                                    function previewImage(input) {
+                                        let preview = document.getElementById('imagePreview');
+                                        let file = input.files[0];
+                                        if (file) {
+                                            let reader = new FileReader();
+                                            reader.onload = function (e) {
+                                                preview.src = e.target.result;
+                                            }
+                                            reader.readAsDataURL(file);
+                                        }
+                                    }
+                                </script>
+
+                                <!-- Size -->
+                                <div class="form-group">
+                                    <label>Giá</label>
+                                    <input type="number" class="form-control" required th:field="*{price}"/>
+                                </div>
+
+                                <!-- Depth -->
+                                <div class="form-group">
+                                    <label>Loại</label>
+                                    <select class="form-control" th:field="*{type}">
+                                        <option value="Thông số nước">Thông số nước</option>
+                                        <option value="Điều trị sức khoẻ">Điều trị sức khoẻ</option>
+                                    </select>
+                                </div>
+
+
+                                <!-- Volume -->
+                                <div class="form-group">
+                                    <label>Link mua</label>
+                                    <input type="text" class="form-control" required th:field="*{linkToBuy}"/>
+                                </div>
+
+                                <!-- Submit and Reset buttons -->
+                                <div class="form-group mb-0">
+                                    <div>
+                                        <button type="submit" class="btn btn-gradient waves-effect waves-light">
+                                            Lưu thay đổi
+                                        </button>
+                                        <button type="reset" class="btn btn-light waves-effect ml-1">
+                                            <a th:href="@{/admin/product}">Danh sách <a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end row -->
+
+
+            </div> <!-- end container-fluid -->
+
+        </div> <!-- end content -->
+
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        2017 - 2019 &copy; Dashboard theme by <a href="">SWP391</a>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+</div>
+
+
+<!-- Vendor js -->
+<script th:src="@{/assets_admin/js/vendor.min.js}"></script>
+
+<!-- Plugin js-->
+<script th:src="@{/assets_admin/assets/libs/parsleyjs/parsley.min.js}"></script>
+
+<!-- Validation init js-->
+<script th:src="@{/assets_admin/assets/js/pages/form-validation.init.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- App js -->
+<script th:src="@{/assets_admin/js/app.min.js}"></script>
+</body>
+</html>
